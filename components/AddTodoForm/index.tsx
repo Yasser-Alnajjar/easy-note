@@ -28,7 +28,7 @@ import { todoSchema } from "@/validation/todo.schema";
 import { todoFormValues } from "@/types/schema";
 import { createTodoAction } from "@/actions/todo.actions";
 
-export default function AddTodoForm() {
+export default function AddTodoForm({ userId }: { userId: string | null }) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const form = useForm<todoFormValues>({
@@ -37,7 +37,7 @@ export default function AddTodoForm() {
   });
   const onSubmit = async (data: todoFormValues) => {
     setLoading(true);
-    await createTodoAction(data);
+    await createTodoAction({ ...data, userId });
     form.reset();
     setLoading(false);
     setOpen(false);
