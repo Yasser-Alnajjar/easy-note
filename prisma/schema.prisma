@@ -1,7 +1,7 @@
 datasource db {
   provider  = "mongodb"
-  url       = env("DATABASE_URL")
-  directUrl = env("DATABASE_UR_DIRECT")
+  url       = "mongodb+srv://yasseralnajjar72:8dIFJg1IOx8uDrkb@cluster0.cvz7sfc.mongodb.net?pgbouncer=true"
+  directUrl = "mongodb+srv://yasseralnajjar72:8dIFJg1IOx8uDrkb@cluster0.cvz7sfc.mongodb.net"
 }
 
 generator client {
