@@ -1,11 +1,3 @@
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/nextjs";
-
 import { ToggleMode } from "@/components/ToggleMode";
 import React from "react";
 
@@ -15,14 +7,6 @@ export default function Navbar() {
       <ul className="flex justify-between  items-center">
         <li>
           <ToggleMode />
-        </li>
-        <li>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
         </li>
       </ul>
     </nav>
