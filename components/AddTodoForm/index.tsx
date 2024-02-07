@@ -25,19 +25,19 @@ import { Loader, Plus } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { todoSchema } from "@/validation/todo.schema";
-import { todoFormValues } from "@/types/schema";
+import { TodoFormValues } from "@/types/schema";
 import { createTodoAction } from "@/actions/todo.actions";
 
-export default function AddTodoForm({ userId }: { userId: string | null }) {
+export default function AddTodoForm() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const form = useForm<todoFormValues>({
+  const form = useForm<TodoFormValues>({
     resolver: zodResolver(todoSchema),
     mode: "onChange",
   });
-  const onSubmit = async (data: todoFormValues) => {
+  const onSubmit = async (data: TodoFormValues) => {
     setLoading(true);
-    await createTodoAction({ ...data, userId });
+    await createTodoAction(data);
     form.reset();
     setLoading(false);
     setOpen(false);

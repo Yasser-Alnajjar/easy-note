@@ -2,15 +2,13 @@ import Navbar from "@/components/shared/Navbar";
 import AddTodoForm from "@/components/AddTodoForm";
 import TodosTable from "@/components/TodoList";
 import { getTodoListAction } from "@/actions/todo.actions";
-import { auth } from "@clerk/nextjs";
 
 export default async function Home() {
-  const { userId } = auth();
-  const todos = await getTodoListAction({ userId });
+  const todos = await getTodoListAction();
   return (
     <main className="sm:container">
       <Navbar />
-      <AddTodoForm userId={userId} />
+      <AddTodoForm />
       <TodosTable todos={todos} />
     </main>
   );

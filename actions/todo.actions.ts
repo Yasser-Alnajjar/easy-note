@@ -1,38 +1,26 @@
 "use server";
 
 import { ITodo } from "@/interfaces";
+import { TodoFormValues } from "@/types/schema";
 import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 const prisma = new PrismaClient();
 
-export const getTodoListAction = async ({
-  userId,
-}: {
-  userId: string | null;
-}) => {
+export const getTodoListAction = async () => {
   return await prisma.todo.findMany({
-    where: {
-      userId: userId as string,
-    },
     orderBy: {
       createdAt: "desc",
     },
   });
 };
-interface TodoValues {
-  userId: string | null;
-  description?: string | undefined;
-  completed?: boolean | undefined;
-  title: string;
-}
+
 export const createTodoAction = async ({
   title,
   completed,
   description,
-  userId,
-}: TodoValues) => {
+}: TodoFormValues) => {
   await prisma.todo.create({
-    data: { userId: userId as string, title, description, completed },
+    data: { title, description, completed },
   });
   revalidatePath("/");
 };
