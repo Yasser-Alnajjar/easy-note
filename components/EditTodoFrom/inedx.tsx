@@ -25,7 +25,7 @@ import { Loader, Pen } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { todoSchema } from "@/validation/todo.schema";
-import { todoFormValues as TodoFormValues } from "@/types/schema";
+import { TodoFormValues } from "@/types/schema";
 import { updateTodoAction } from "@/actions/todo.actions";
 import { ITodo } from "@/interfaces";
 
