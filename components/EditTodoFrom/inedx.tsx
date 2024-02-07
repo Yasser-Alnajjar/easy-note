@@ -56,8 +56,8 @@ export default function EditTodoForm({ todo }: { todo: ITodo }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild className="ml-auto">
-        <Button variant="default">
-          <Pen size={14} className="mr-1" />
+        <Button variant="default" size="icon">
+          <Pen size={14} />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">

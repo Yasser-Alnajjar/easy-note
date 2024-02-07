@@ -8,7 +8,7 @@ export default async function Home() {
   const { userId } = auth();
   const todos = await getTodoListAction({ userId });
   return (
-    <main className="container">
+    <main className="sm:container">
       <Navbar />
       <AddTodoForm userId={userId} />
       <TodosTable todos={todos} />

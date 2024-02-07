@@ -21,7 +21,7 @@ export default function TodosTable({ todos }: { todos: ITodo[] }) {
           <TableHead>ID</TableHead>
           <TableHead>Title</TableHead>
           <TableHead>Status</TableHead>
-          <TableHead>Created At</TableHead>
+          <TableHead>Date</TableHead>
           <TableHead className="text-right">Actions</TableHead>
         </TableRow>
       </TableHeader>

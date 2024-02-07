@@ -46,10 +46,9 @@ export default function AddTodoForm({ userId }: { userId: string | null }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <div className="flex justify-end">
-          <Button variant="default">
+        <div className="flex justify-end my-4">
+          <Button variant="default" size={"icon"}>
             <Plus size={14} className="mr-1" />
-            New Todo
           </Button>
         </div>
       </DialogTrigger>
